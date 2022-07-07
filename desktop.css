@@ -1,0 +1,496 @@
+/* animation */
+
+.my-element {
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+.animate__animated.animate__bounce {
+  --animate-duration: 2s;
+}
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 1200ms;
+  --animate-delay: 0.9s;
+}
+
+
+
+
+
+
+
+/* animation end */
+
+
+
+
+
+
+
+body{
+  font-family: 'Goldman', cursive;
+
+}
+
+
+
+
+
+
+.back{
+    background: url(back.jpg);    
+    background-repeat: no-repeat; 
+    background-position: center;    
+    background-size: cover;
+    height: 500px;
+    
+
+
+}
+
+#btn:hover{
+background-color: white;
+color: rgb(202, 9, 106);
+font-weight: bolder;
+border: 2px;
+box-shadow: 2px 2px 2px 2px  rgb(93, 20, 211);
+transition-duration: 1s;
+
+}
+#e1:hover{
+box-shadow: 20px 0px 10px 10px  rgb(93, 20, 211);
+transition-duration: 2s;
+
+}
+
+#e2:hover{
+    box-shadow:  -20px 0px 20px 10px rgb(202, 9, 106);
+    transition-duration: 2s;
+
+
+}
+#e3:hover{
+    box-shadow:0px 10px 20px 10px rgb(202, 9, 106);
+    transition-duration: 2s;
+
+
+}
+#e3{
+margin-top: 40px;
+margin-bottom: 70px;
+
+}
+
+/* 
+.pro-1 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #12127e;
+  height: 100vh;
+  align-items: center
+} */
+
+.progress {
+  
+  box-shadow:0px 0px 20px 10px rgb(202, 9, 106);
+  
+  width: 200px;
+  height: 200px;
+  font-size: 30px;
+  color: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #07070c;
+  text-align: center;
+  line-height: 200px;
+  margin: 20px
+    
+
+
+}
+
+.progress::after {content: "%";}
+
+.progress .title {position: relative;z-index: 100;}
+
+.progress .overlay {
+
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #07070c
+
+
+}
+
+.progress .left, .progress .right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 10px solid rgb(93, 20, 211);
+  
+  border-radius: 100px 0px 0px 100px;
+  border-right: 0;
+  transform-origin: right;
+}
+
+.progress .left {animation: load1 1s linear forwards;}
+
+.progress:nth-of-type(2) .right, .progress:nth-of-type(3) .right {animation: load2 .5s linear forwards 1s;}
+
+.progress:last-of-type .right, .progress:first-of-type .right {animation: load3 .8s linear forwards 1s;}
+
+@keyframes load1 {
+
+  0% {transform: rotate(0deg); 
+    
+  }
+
+  100% {transform: rotate(180deg);}
+}
+
+@keyframes load2 {
+  0% {z-index: 100;transform: rotate(180deg); }
+
+  100% {z-index: 100;transform: rotate(270deg); }
+}
+
+@keyframes load3 {
+  0% {z-index: 100;transform: rotate(180deg); }
+
+  100% {
+      z-index: 100;transform: rotate(315deg); 
+      
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.progress{
+  background: none;
+  margin: 0 auto;
+  box-shadow: none;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  position: relative;
+
+
+}
+.progress:after{
+  content: "";
+  border-radius: 50%;
+  border: 15px solid #f2f5f5;
+  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.progress > span{
+
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.progress .progress-left{
+  left: 0;
+
+}
+.progress .progress-bar{
+  border-width: 15px;
+  border-style: solid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+  top: 0;
+}
+.progress .progress-left .progress-bar{
+  left: 100%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+
+}
+.progress .progress-right{
+  right: 0;
+}
+.progress .progress-right .progress-bar{
+  left: -100%;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 0;
+  animation: loading-1 1.8s linear forwards;
+}
+.progress .progress-value{
+  font-size: 24px;
+  color: rgb(250, 245, 245);
+  box-shadow:  0px 10px 20px 10px rgb(202, 9, 106);
+  
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+
+@keyframes loading-1{
+  0%{
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+
+    }
+  100%{
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+  }
+}
+@keyframes loading-2{
+  0%{
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100%{
+      -webkit-transform: rotate(144deg);
+      transform: rotate(144deg);
+  }
+}
+@keyframes loading-3{
+  0%{
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100%{
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+  }
+}
+@keyframes loading-4{
+  0%{
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100%{
+      -webkit-transform: rotate(36deg);
+      transform: rotate(36deg);
+  }
+}
+@keyframes loading-5{
+  0%{
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100%{
+      -webkit-transform: rotate(126deg);
+      transform: rotate(126deg);
+  }
+}
+
+.progress.blue .progress-bar{
+  border-color: #26abfd;
+}
+.progress.blue .progress-left .progress-bar{
+  animation: loading-2 1.5s linear forwards 1.8s;
+}
+.progress.yellow .progress-bar{
+  border-color: #fdc426;
+}
+.progress.yellow .progress-left .progress-bar{
+  animation: loading-3 1s linear forwards 1.8s;
+}
+.progress.pink .progress-bar{
+  border-color: #f83754;
+}
+.progress.pink .progress-left .progress-bar{
+  animation: loading-4 0.4s linear forwards 1.8s;
+} */
+
+
+
+
+
+
+
+
+
+
+/* .have-any{
+    opacity: 0;
+}
+
+.have-any.animated{
+    opacity: 1;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    /* &:last-child {
+      margin-right: 0
+    }
+    
+    &:hover,
+    &:focus {
+      //background: #f1f1f1;
+    }
+    
+    &:focus {
+      outline-color: inherit;
+    }
+  }
+  
+  .twitter {
+    &:hover,
+    &:focus {
+      color: #00ACED;
+      box-shadow: 0 0 24px 0 #00ACED
+    }
+  }
+  
+  .github {
+    &:hover,
+    &:focus {
+      color: #4183c4;
+      box-shadow: 0 0 24px 0 #4183c4
+    }
+  }
+  
+  .pinterest {
+    &:hover,
+    &:focus {
+      color: #bd081c;
+      box-shadow: 0 0 24px 0 #bd081c
+    }
+  }
+  
+  .youtube {
+    &:hover,
+    &:focus {
+      color: #cd201f;
+      box-shadow: 0 0 24px 0 #cd201f
+    }
+  }
+  
+  .facebook {
+    &:hover,
+    &:focus {
+      color: #3b5998;
+      box-shadow: 0 0 24px 0 #3b5998
+    }
+  }
+  
+  .google {
+    &:hover,
+    &:focus {
+      color: #dd4b39;
+      box-shadow: 0 0 24px 0 #dd4b39
+    } */
+  
+
+
+
+    .fa {
+      padding: 20px;
+      padding-top: 20px;
+      font-size: 30px;
+      width: 60px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+      height: 60px;
+
+    }
+    
+    
+    
+    .fa-facebook {
+      background: #1d1e1f;
+      color: white;
+    
+     
+    }
+    .fa-facebook:hover {
+    
+      box-shadow: 0px 0px 12px 5px  #3B5998; 
+      color: white;
+    
+    }
+    
+
+
+    .fa-google {
+      background: #1d1e1f;
+      color: white;
+    }
+    
+    .fa-google:hover {
+      
+      box-shadow: 0px 0px 12px 5px #dd4b39; 
+      color: white;
+    }
+    
+
+    .fa-linkedin {
+      background: #1d1e1f;
+      color: white;
+    }
+    .fa-linkedin:hover { 
+      box-shadow: 0px 0px 12px 5px #007bb5;
+      color: white;
+    }
+
+    
+    .fa-instagram {
+      background: #1d1e1f;
+      color: white;
+    }
+    
+    .fa-instagram:hover {
+      box-shadow: 0px 0px 12px 5px #9a1e9ed5;
+      color: white;
+    }
+
+
+
+
